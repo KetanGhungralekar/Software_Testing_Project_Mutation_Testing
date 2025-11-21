@@ -1,0 +1,69 @@
+# .gitignore for a Maven/Java project
+# See https://www.toptal.com/developers/gitignore/api/maven,java,intellij,eclipse,visualstudiocode
+
+# Maven / build
+target/
+build/
+out/
+
+# Compiled class files
+*.class
+
+# Generated sources
+generated-sources/
+generated-test-sources/
+
+# Maven wrapper local files (keep the wrapper itself tracked)
+.mvn/wrapper/maven-wrapper.properties
+
+# Test / report outputs
+surefire-reports/
+pit-reports/
+test-classes/
+jacoco.exec
+coverage/
+
+# Logs and runtime files
+*.log
+logs/
+hs_err_pid*
+
+# IDEs and editors
+.idea/
+*.iml
+*.iws
+*.ipr
+.project
+.classpath
+.settings/
+.vscode/
+
+# Eclipse specific
+*.launch
+
+# JetBrains Rider / other caches
+/.idea/
+/.idea/*
+
+# OS-specific
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environment files / local config
+.env
+local.properties
+
+# Node (if any frontend present)
+node_modules/
+
+# Temporary files
+*.tmp
+*.swp
+*~
+
+# Ignore test result XMLs that can be regenerated
+TEST-*.xml
+
+# Allow tracking of important metadata files (uncomment if you want to ignore them)
+#pom.xml

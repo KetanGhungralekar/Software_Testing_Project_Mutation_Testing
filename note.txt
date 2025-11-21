@@ -1,0 +1,21 @@
+1 — High-level strategy (priority order)
+
+Inspect surviving mutants first
+
+Open the PIT HTML report, go to each package → surviving mutants list. For each surviving mutant, PIT shows the mutated line, mutation type, and stack trace. Fix tests to kill those exact mutants.
+
+Increase assertion density & specificity
+
+Many surviving mutants are killed by additional assertions (checking return value, side effects, exceptions, state). Tests that only exercise code but don’t assert will not kill many mutants.
+
+Add boundary and negative tests
+
+Many mutators flip conditionals or off-by-one changes. Add boundary cases (empty, single-element, max/min, negatives) to reveal those errors.
+
+Use whitebox-focused tests to target mutation operators
+
+E.g., for CONDITIONALS_BOUNDARY and NEGATE_CONDITIONALS, write tests asserting both true/false outcomes of condition branches.
+
+Integration tests: assert intermediate states & side-effects
+
+Integration tests often only check final output; assert intermediate steps (result of sorting before filtering, intermediate pipeline state) and interactions (calls to collaborators using spies/mocks) to kill integration-level mutants.
