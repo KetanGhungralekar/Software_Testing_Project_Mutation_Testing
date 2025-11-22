@@ -1,9 +1,12 @@
 package com.testing.integration;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Test;
+
 import com.testing.algo.graph.Graph;
 import com.testing.algo.sorting.SortingContext;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 class IntegrationTests {
 
@@ -63,5 +66,39 @@ class IntegrationTests {
 
         assertTrue(orchestrator.searchPatternInGraphPath(g, 1, "23"));
         assertFalse(orchestrator.searchPatternInGraphPath(g, 1, "13")); // "13" not in "123"
+    }
+
+    @Test
+    void testDataPipelineNullInput() {
+        DataPipeline dp = new DataPipeline();
+        assertEquals(-1, dp.processData(null, SortingContext.SortingStrategy.BUBBLE_SORT, 5));
+    }
+
+    @Test
+    void testDataPipelineNoPrimes() {
+        DataPipeline dp = new DataPipeline();
+        int[] data = {4, 6, 8, 10, 12};
+        assertEquals(-1, dp.processData(data, SortingContext.SortingStrategy.SELECTION_SORT, 7));
+    }
+
+    @Test
+    void testSumFactorialOfTopKZero() {
+        DataPipeline dp = new DataPipeline();
+        int[] data = {5, 6, 7};
+        assertEquals(0, dp.sumFactorialOfTopK(data, 0));
+    }
+
+    @Test
+    void testSumFactorialOfTopKNegative() {
+        DataPipeline dp = new DataPipeline();
+        int[] data = {5, 6, 7};
+        assertEquals(0, dp.sumFactorialOfTopK(data, -3));
+    }
+
+    @Test
+    void testSumFactorialOfTopKNoValidFactorials() {
+        DataPipeline dp = new DataPipeline();
+        int[] data = {25, 30, 100};
+        assertEquals(0, dp.sumFactorialOfTopK(data, 2));
     }
 }
