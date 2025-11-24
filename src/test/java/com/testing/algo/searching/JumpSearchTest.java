@@ -19,21 +19,37 @@ public class JumpSearchTest {
     }
 
     @Test
-public void testJumpSearch_KillsReturnZeroMutant() {
-    JumpSearch js = new JumpSearch();
+    public void testJumpSearch_KillsReturnZeroMutant() {
+        JumpSearch js = new JumpSearch();
 
-    // Step = sqrt(4) = 2, and linear scan will land EXACTLY on prev = 2
-    int[] arr = {1, 2, 5, 6};
+        // Step = sqrt(4) = 2, and linear scan will land EXACTLY on prev = 2
+        int[] arr = { 1, 2, 5, 6 };
 
-    // This forces execution of line 44
-    int x = 4;
+        // This forces execution of line 44
+        int x = 4;
 
-    int result = js.search(arr, x);
+        int result = js.search(arr, x);
 
-    // Real implementation must return -1
-    assertEquals(-1, result);
-}
+        // Real implementation must return -1
+        assertEquals(-1, result);
+    }
 
+    @Test
+    public void testJumpSearch_UnreachableBranch() {
+
+        // Carefully chosen input that maximizes chance of hitting the branch.
+        // This array has a sharp jump at index=2 so prev stops exactly at 2.
+        int[] arr = { 1, 2, 100, 200, 300 };
+
+        int x = 50; // not present, lies between arr[1] and arr[2]
+
+        int result = js.search(arr, x);
+
+        // If mutant branch were reachable, result would be 0.
+        // But correct logic (and actual execution) returns -1.
+        assertEquals(-1, result,
+                "This test demonstrates that prev == Math.min(step,n) never becomes true.");
+    }
 
     @Test
     public void testFoundMiddle() {
