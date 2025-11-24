@@ -64,7 +64,9 @@
                     <targetClasses>
                         <param>com.testing.*</param>
                     </targetClasses>
-
+                     <features>
+                        <feature>+CLASSLIMIT(limit[5])</feature>
+                    </features>
                     <!-- Test packages -->
                     <targetTests>
                         <param>com.testing.*</param>
@@ -79,14 +81,13 @@
                     <!--  Required: 3 UNIT + 3 INTEGRATION LEVEL -->
                     <!-- ====================================== -->
                     <mutators>
-
                         <!-- ======= UNIT-LEVEL (3) ======= -->
                         <mutator>CONDITIONALS_BOUNDARY</mutator>
                         <mutator>MATH</mutator>
-                        <mutator>RETURN_VALS</mutator>
+                        <mutator>PRIMITIVE_RETURNS</mutator>
 
                         <!-- ===== INTEGRATION-LEVEL (3) ===== -->
-                        <mutator>CALLS</mutator>
+                        <mutator>NON_VOID_METHOD_CALLS</mutator>
                         <mutator>VOID_METHOD_CALLS</mutator>
                         <mutator>NEGATE_CONDITIONALS</mutator>
 
