@@ -218,4 +218,10 @@ class IntegrationTests {
         long actual = dp.sumFactorialOfTopK(data, 5); // k > number of valid entries
         assertEquals(expected, actual);
     }
+
+    @Test
+    void testSumFactorialOfTopK_WhenKIsNegative_ReturnsZero() {
+        int[] data = {1, 2, 3};
+        assertEquals(0, dp.sumFactorialOfTopK(data, 0));
+    }
 }

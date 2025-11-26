@@ -85,11 +85,12 @@
                         <mutator>CONDITIONALS_BOUNDARY</mutator>
                         <mutator>MATH</mutator>
                         <mutator>PRIMITIVE_RETURNS</mutator>
+                        <mutator>NEGATE_CONDITIONALS</mutator>
 
                         <!-- ===== INTEGRATION-LEVEL (3) ===== -->
                         <mutator>NON_VOID_METHOD_CALLS</mutator>
                         <mutator>VOID_METHOD_CALLS</mutator>
-                        <mutator>NEGATE_CONDITIONALS</mutator>
+                        <mutator>CONSTRUCTOR_CALLS</mutator>
 
                     </mutators>
 
