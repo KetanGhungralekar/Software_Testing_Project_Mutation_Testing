@@ -43,8 +43,8 @@ This project uses **PIT (Pitest)** for mutation testing.
 *   **Target Classes**: `com.testing.*`
 *   **Target Tests**: `com.testing.*`
 *   **Mutators**:
-    *   **Unit Level**: `CONDITIONALS_BOUNDARY`, `MATH`, `PRIMITIVE_RETURNS`
-    *   **Integration Level**: `NON_VOID_METHOD_CALLS`, `VOID_METHOD_CALLS`, `NEGATE_CONDITIONALS`
+    *   **Unit Level**: `CONDITIONALS_BOUNDARY`, `MATH`, `PRIMITIVE_RETURNS`,`NEGATE_CONDITIONALS`
+    *   **Integration Level**: `NON_VOID_METHOD_CALLS`, `VOID_METHOD_CALLS`,`CONSTRUCTOR_CALLS`
 
 ### Running Mutation Tests
 
